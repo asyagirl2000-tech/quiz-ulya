@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Кто ты из Улья?</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #fffbee; color: #333; padding: 20px; }
+  h1 { text-align: center; }
+  .question { margin-bottom: 20px; }
+  .result { display: none; text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333; border-radius: 15px; background: #fff; }
+  .result img { max-width: 200px; border-radius: 15px; margin-bottom: 15px; }
+  button { padding: 10px 20px; background: #ffb347; border: none; border-radius: 10px; cursor: pointer; }
+  button:hover { background: #ff9800; }
+</style>
+</head>
+<body>
+<h1>Кто ты из Улья?</h1>
+
+<form id="quizForm">
+
+<!-- Вопросы -->
+<div class="question">
+  <p>1. Поведение на вечеринках. Твоя роль на любой тусовке:</p>
+  <label><input type="radio" name="q1" data-person="Артур"> Ди-джей</label><br>
+  <label><input type="radio" name="q1" data-person="Аня"> Повелитель танцпола</label><br>
+  <label><input type="radio" name="q1" data-person="Лиза"> Тихий наблюдатель</label><br>
+  <label><input type="radio" name="q1" data-person="Оса"> Контролер</label>
+</div>
+
+<div class="question">
+  <p>2. Реакция на экстраординарную ситуацию, ты:</p>
+  <label><input type="radio" name="q2" data-person="Жанна"> Громко материшься</label><br>
+  <label><input type="radio" name="q2" data-person="Настя Какошко"> Делаешь фирменный жест и говоришь коронную фразу</label><br>
+  <label><input type="radio" name="q2" data-person="Виталик"> Молча принимаешь ситуацию и адаптируешься</label><br>
+  <label><input type="radio" name="q2" data-person="Лера"> Пытаешься всех успокоить и найти компромисс</label>
+</div>
+
+<div class="question">
+  <p>3. Музыкальные предпочтения. Твой идеальный саундтрек для вечера:</p>
+  <label><input type="radio" name="q3" data-person="Макс"> Пацанский рэп</label><br>
+  <label><input type="radio" name="q3" data-person="Лера"> Хиты 2000-х, которые знают все</label><br>
+  <label><input type="radio" name="q3" data-person="Маша Ковал"> Старые песни о главном</label><br>
+  <label><input type="radio" name="q3" data-person="Аня"> Топ-чарты Яндекс музыки</label>
+</div>
+
+<div class="question">
+  <p>4. Твоя стратегия завершения вечера:</p>
+  <label><input type="radio" name="q4" data-person="Оса"> Ухожу эмоционально, все должны знать, что я иду спать</label><br>
+  <label><input type="radio" name="q4" data-person="Шановка"> Каждый раз это неожиданность даже для меня</label><br>
+  <label><input type="radio" name="q4" data-person="Виталик"> Тихо исчезаю, когда считаю нужным</label><br>
+  <label><input type="radio" name="q4" data-person="Артур"> Остаюсь до последнего, пока все не разойдутся</label>
+</div>
+
+<div class="question">
+  <p>5. Алкогольные предпочтения. Твой подход к выпивке:</p>
+  <label><input type="radio" name="q5" data-person="Маша Ковал"> Чем больше пузырьков, тем лучше</label><br>
+  <label><input type="radio" name="q5" data-person="Настя Какошко"> Нетакусик</label><br>
+  <label><input type="radio" name="q5" data-person="Макс"> Трезвый водитель</label><br>
+  <label><input type="radio" name="q5" data-person="Жанна"> Нормис</label>
+</div>
+
+<div class="question">
+  <p>6. Творческие способности. Если попросят выступить перед компанией:</p>
+  <label><input type="radio" name="q6" data-person="Виталик"> Рэп, рифма, батл по фактам - это про меня</label><br>
+  <label><input type="radio" name="q6" data-person="Оса"> И чтец, и жнец, и на дуде игрец</label><br>
+  <label><input type="radio" name="q6" data-person="Лиза"> Найду способ отказаться или выступлю очень коротко</label><br>
+  <label><input type="radio" name="q6" data-person="Шановка"> Соблазню любого в танце</label>
+</div>
+
+<div class="question">
+  <p>7. Помощь и забота. Как ты заботишься о друзьях:</p>
+  <label><input type="radio" name="q7" data-person="Настя Какошко"> По ситуации: подставлю плечо или схожу с тобой на стрелку</label><br>
+  <label><input type="radio" name="q7" data-person="Шановка"> Поднимаю настроение и развлекаю</label><br>
+  <label><input type="radio" name="q7" data-person="Артур"> Помогаю делом, но без лишних слов</label><br>
+  <label><input type="radio" name="q7" data-person="Макс"> Делаю, что попросят, но без удовольствия</label>
+</div>
+
+<div class="question">
+  <p>8. Стиль юмора. Твои шутки обычно:</p>
+  <label><input type="radio" name="q8" data-person="Настя Какошко"> Ситуативные</label><br>
+  <label><input type="radio" name="q8" data-person="Аня"> Грязные про секс</label><br>
+  <label><input type="radio" name="q8" data-person="Лера"> Шутки милениалов, которые не все поймут</label><br>
+  <label><input type="radio" name="q8" data-person="Маша Ковал"> Предпочитаю не шутить</label>
+</div>
+
+<div class="question">
+  <p>9. Утро после вечеринки. На следующий день после тусовки ты:</p>
+  <label><input type="radio" name="q9" data-person="Макс"> Встаю самый последний на все готовенькое</label><br>
+  <label><input type="radio" name="q9" data-person="Артур"> Запиваю аспирин кофе, чтобы выжить</label><br>
+  <label><input type="radio" name="q9" data-person="Жанна"> Обычный день только на 0,5х</label><br>
+  <label><input type="radio" name="q9" data-person="Лиза"> На день выпадаю из жизни</label>
+</div>
+
+<div class="question">
+  <p>10. Твой стиль путешествий:</p>
+  <label><input type="radio" name="q10" data-person="Виталик"> За меня все организовывают, а я плачУ</label><br>
+  <label><input type="radio" name="q10" data-person="Лера"> Много планов, но графики с друзьями не совпадают</label><br>
+  <label><input type="radio" name="q10" data-person="Жанна"> Риск и зов авантюр</label><br>
+  <label><input type="radio" name="q10" data-person="Лиза"> Любимый маршрут - от дивана до холодильника</label>
+</div>
+
+<div class="question">
+  <p>11. Отношения с автомобилем:</p>
+  <label><input type="radio" name="q11" data-person="Маша Ковал"> Нет прав</label><br>
+  <label><input type="radio" name="q11" data-person="Оса"> Сяду за руль только под дулом пистолета</label><br>
+  <label><input type="radio" name="q11" data-person="Шановка"> Дико трешу и шашкую</label><br>
+  <label><input type="radio" name="q11" data-person="Аня"> Примерный водитель</label>
+</div>
+
+<button type="button" onclick="calculateResult()">Узнать результат</button>
+</form>
+
+<div class="result" id="result"></div>
+
+<script>
+const descriptions = {
+"Настя Какошко": "<img src='Настя Какошко.jpg'><p>Слово трееееш всегда можно услышать из твоих уст. Решала на бэхе: бахнуть вечером коктик в бессонице или задавить муравьев, вот с какими решениями тебе приходится сталкиваться ежедневно.</p>",
+"Артур": "<img src='Артур.jpg'><p>Тебя слышно издалека, ты либо орешь на бабку, либо.. на дедку. Доски твоих врагов уже давно высохли на чердаке, а понедельников в их жизни уже не осталось.</p>",
+"Макс": "<img src='Макс.jpg'><p>Зож как стиль жизни, но фаллический символ в рот не считается))))) Тачки, макан и железо в зале - залог отличного дня.</p>",
+"Виталик": "<img src='Виталик.jpg'><p>Спокойный интеллигентный мальчик, записывает рэп и не курит. Но после пары стопок просыпается альтер эго - ЙООООБНУТЫЙЙ.</p>",
+"Аня": "<img src='Аня.jpg'><p>Ты человек творчество - танцы, съемка фото и видео, пение, креатив и т.д. Но стопочку с дедом бахнуть, а потом шутить про секс - святое дело.</p>",
+"Лера": "<img src='Лера.jpg'><p>Ты милениал этой тусовки. Все победители фабрики звезд и скандалы голливуда 00-10х живут в твоей голове рент фри. Гурман и эстет, но сходить в деревенский туалет тоже не взападло.</p>",
+"Жанна": "<img src='Жанна.jpg'><p>Яркая, харизматичная, успешная, умная, красивая ... русская. Смеяться и танцевать всю ночь? Нет, лучше плакать из-за мексиканца на пляже в одиночестве. Ты всегда хочешь угарать, остается только искать компанию.</p>",
+"Маша Ковал": "<img src='Маша Ковал.jpg'><p>Любительница игристого и китайской культуры. В компании предпочитаешь отмалчиваться, но в разговорах тет-а-тет тебе нет равных. Твои острые длинны ноготки всегда укажут хуесоса и соблазнят малолетку.</p>",
+"Шановка": "<img src='Шановка.jpg'><p>Воплощение грации и очарования. Все мужчины любых возрастов падают к ногам, чтобы поменять колесо в твоей машине. А тебе просто хочется дико трешить и забрать в соседский заброшенный дом.</p>",
+"Лиза": "<img src='Лиза.jpg'><p>Хейтишь бар молодой и презираешь всех нетакусиков. Трудяга и работяга, постоянно стремишься к новым знаниям и саморазвитию. В компании, скорее тихоня, но это до первых пары рюмок.</p>",
+"Оса": "<img src='Оса.jpg'><p>Звезда любой вечеринки и душа компании. За тобой готовы идти люди (да, ненасильственное общение рулит). Ты все делаешь с любовью, даже раздаешь пиздюлей.</p>"
+};
+
+function calculateResult() {
+  const form = document.getElementById("quizForm");
+  const answers = form.querySelectorAll("input[type=radio]:checked");
+  if (answers.length < 11) {
+    alert("Пожалуйста, ответь на все вопросы!");
+    return;
+  }
+
+  let counts = {};
+  answers.forEach(ans => {
+    const person = ans.getAttribute("data-person");
+    counts[person] = (counts[person] || 0) + 1;
+  });
+
+  let topPerson = null;
+  let maxCount = 0;
+  for (const person in counts) {
+    if (counts[person] > maxCount) {
+      maxCount = counts[person];
+      topPerson = person;
+    }
+  }
+
+  const resultDiv = document.getElementById("result");
+  if (topPerson && descriptions[topPerson]) {
+    resultDiv.innerHTML = descriptions[topPerson];
+    resultDiv.style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
